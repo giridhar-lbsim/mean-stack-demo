@@ -13,6 +13,23 @@ var bodyParser = require('body-parser');
 app.use(express.static(__dirname+'/public'));
 app.use(bodyParser.json());
 
+
+
+app.post('/contactlist',function(req, res){
+	console.log('save contact');
+	console.log('req.body:', req.body);
+	Contact.insert({req.body}).exec(function(err, contact){
+		if (err) {
+			res.send('error has occured');
+		}else{
+			console.log('contact has been saved successfully:',contact);
+			res.json(contact);
+		}
+	});
+
+});
+
+
 app.get('/contactlist',function(req, res){
 	console.log('get contactlist');
 	Contact.find({}).exec(function(err, contacts){
@@ -24,24 +41,7 @@ app.get('/contactlist',function(req, res){
 	});
 
 });
-
-app.post('/contactlist',function(req, res){
-	console.log('save contact');
-	db.contactlist.insert(req.body, function(err, docs){
-		res.json(docs);
-	});
-
-});
 /*
-
-app.get('/contactlist',function(req, res){
-	console.log('get contactlist');
- 	mongoose.contactlist.find(function(err, docs){
- 		res.json(docs);
- 	});
-    
-});
-
 app.post('/contactlist',function(req, res){
 	console.log('save contact');
 	db.contactlist.insert(req.body, function(err, docs){
