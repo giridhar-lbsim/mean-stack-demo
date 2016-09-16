@@ -17,9 +17,6 @@ app.use(bodyParser.json());
 
 //save contact
 app.post('/contact',function(req, res){
-	console.log('save contact');
-	console.log('req.body:', req.body);
-
 	var newContact = new Contact();
 	newContact.name = req.body.name;
 	newContact.email  = req.body.email;
@@ -29,7 +26,6 @@ app.post('/contact',function(req, res){
 		if (err) {
 			res.send('error has occured');
 		}else{
-			console.log('saved contact:',contact);
 			res.json(contact);
 		}
 	});
@@ -39,12 +35,10 @@ app.post('/contact',function(req, res){
 /*//save contact
 //direct request saving
 app.post('/contact2',function(req, res){
-	console.log('req.body:',req.body);
 	Contact.create(req.body,function(err, contact){
 		if(err){
 			res.send('error has occured while creating contact');
 		}else{
-			console.log('contact has been saved successfuly');
 			res.json(contact);
 		}
 	});
@@ -52,7 +46,6 @@ app.post('/contact2',function(req, res){
 
 //get all contact
 app.get('/contact',function(req, res){
-	console.log('get contactlist');
 	Contact.find({}).exec(function(err, contacts){
 		if(err){
 			res.send('error has occured');
@@ -78,7 +71,6 @@ app.get('/contact/:id', function(req, res){
 
 app.put('/contact/:id', function(req, res){
 	var id = req.params.id;
-	console.log("id in server side",id);
 	Contact.findOneAndUpdate({_id:id},{$set:{name:req.body.name,email:req.body.email,number:req.body.number}},{upsert:true},function(err, contact){
 		if(err){
 			res.send('error while finding and updating contact');
@@ -92,7 +84,6 @@ app.put('/contact/:id', function(req, res){
 
 app.delete('/contact/:id', function(req, res){
 	var id = req.params.id;
-	console.log("id in server side",id);
 	Contact.findOneAndRemove({_id:id},function(err, contact){
 		if(err){
 			res.send('error has occured while deleting a contact');
@@ -103,7 +94,6 @@ app.delete('/contact/:id', function(req, res){
 
 /*
 app.post('/contactlist',function(req, res){
-	console.log('save contact');
 	db.contactlist.insert(req.body, function(err, docs){
 		res.json(docs);
 	});
@@ -112,7 +102,6 @@ app.post('/contactlist',function(req, res){
 
 app.delete('/contactlist/:id', function(req, res){
 	var id = req.params.id;
-	console.log("id in server side",id);
 	db.contactlist.remove({_id:mongojs.ObjectId(id)}, function(err, docs){
 		res.json(docs);
 	})
@@ -122,7 +111,6 @@ app.delete('/contactlist/:id', function(req, res){
 
 app.put('/contactlist/:id', function(req, res){
 	var id = req.params.id;
-	console.log('server: request of PUT req:',req.body);
 	db.contactlist.findAndModify({query:{_id:mongojs.ObjectId(id)},
 	update:{$set:{name:req.body.name, email:req.body.email, number:req.body.number}},
 	new: true},function(err, docs){

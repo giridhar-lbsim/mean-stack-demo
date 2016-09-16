@@ -6,7 +6,6 @@
 
 				var refresh = function(){
 					$http.get('/contact').success(function(response){
-						console.log('response of GET req:',response);
 						$scope.contactlist = response;
 						$scope.contact = "";
 					});
@@ -14,10 +13,8 @@
 				}
 				refresh();
 				$scope.addContact = function(contact){
-					console.log('contact in ctrl',contact);
 					if(contact){
 						$http.post('/contact',contact).success(function(response){
-							console.log("response of post req:",response);
 							refresh();
 						});
 
@@ -25,23 +22,19 @@
 
 				};
 				$scope.removeContact = function(id){
-					console.log("remove contact call");
 					$http.delete('/contact/'+id).success(function(response){
-						console.log('response of DELETE req:',response);
 						refresh();
 					});
 
 				};
 				$scope.editContact = function(contact){
 					if(contact){
-						$scope.contact = contact;
+						$scope.contact = angular.copy(contact);
 					}
 				};
 				$scope.updateContact = function(contact){
-					console.log('ctrl: contact in PUT req:',contact);
 					if(contact && contact._id){
 						$http.put('/contact/'+contact._id, contact).success(function(response){
-							console.log('response of PUT req',response);
 							refresh();
 						});
 					}
