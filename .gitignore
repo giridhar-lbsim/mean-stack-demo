@@ -4,7 +4,7 @@
 .idea/
 .metadata/
 target/
-node_modules/
+ui/node_modules/
 src/main/resources/static/
 ui/app/js/bin/template/
 ui/app/css/sass/
