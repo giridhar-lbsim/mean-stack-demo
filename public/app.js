@@ -1,4 +1,8 @@
-			var myApp = angular.module('myApp', []);
+			var myApp = angular.module('myApp', ['ui.router','home']).config( function( $urlRouterProvider ) {
+				$urlRouterProvider.otherwise( '/home' );
+			} ).run(function(){
+				console.log('agular app is running');
+			});
 
 			myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
 				console.log("AppCtrl");
