@@ -1,5 +1,5 @@
 <iDOCTYPE>
-	<html ng-app="myApp">
+	<html ng-app="app">
 	<head>
 		<title>Contact List App</title>
 		<!-- Latest compiled and minified CSS -->
@@ -8,44 +8,19 @@
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 	</head>
-	<body ng-controller = 'AppCtrl'>
+	<body>
+
 		<div ui-view></div>
-		<!-- <div class="container" ng-controller='AppCtrl'>
-			<div ><h3 >Contact List App Using MEAN Stack.</h3></div>
-			
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Email</th>
-						<th>Number</th>
-						<th>CRUD Operations</th>
-						<th>&nbsp</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr >
-						<td><input type="text" name="name" ng-model="contact.name"></td>
-						<td><input type="text" name="email" ng-model="contact.email"></td>
-						<td><input type="text" name="number" ng-model="contact.number"></td>
-						<td><button  class="btn btn-primary" data-ng-if = "contact && !contact._id" ng-click="addContact(contact)">Add</button></td>
-						<td ><button  class="btn btn-info" ng-if="contact._id" ng-click="updateContact(contact)">Update</button></td>
-						
-					</tr>
-					<tr ng-repeat='contact in contactlist'>
-						<td>{{contact.name}}</td>
-						<td>{{contact.email}}</td>
-						<td>{{contact.number}}</td>
-						<td><button class="btn btn-danger" ng-click="removeContact(contact._id)">Remove</button></td>
-						<td><button class="btn btn-warning" ng-click="editContact(contact)">Edit</button></td>
-					</tr>
-				</tbody>
-			</table>
-		</div> -->
+		<!-- //ToDo: complete it with minified.js -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
 		<script src="app.js"></script>
 		<script src="/js/home/home-ctrl.js"></script>
 		<script src="/js/login/login-ctrl.js"></script>
+		<script src="/js/login/login-service.js"></script>
+
+		<script src="/js/user/user-ctrl.js"></script>
+		<script src="/js/user/user-service.js"></script>
+		<script type="/css/style.css"></script>
 	</body>
 	</html>

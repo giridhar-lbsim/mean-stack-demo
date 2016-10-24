@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
-
+// importing Contact model
 var Contact = require('./Contact.model');
+
+// importing User model
+var User = require('./User.model');
 
 // var mongojs = require('mongojs');
 // var db = mongojs('contactlist',['contactlist']);
@@ -99,6 +102,34 @@ app.delete('/contact/:id', function(req, res){
 		}else
 		res.json(contact);
 	});
+});
+
+app.post('/login', function(req, res){
+	console.log('login  request: ',req.body);
+	User.findOne({email:req.body.email,password:req.body.password}, function(err, user){
+		if(err){
+			res.send('error while login: ',err);
+		}else{
+			if(user !== null){
+			res.json(user);
+			}else{
+				res.json('Invalid email or password');
+			}
+		}
+	})
+});
+
+app.post('/user/find-by-id/:id', function(req, res){
+	var id = req.params.id;
+	User.findById(id,function(err, user){
+		if(err){
+			res.send('error while finding user by id:',id);
+		}else{
+			console.log('user in server side: ',user);
+			res.json(user);
+		}
+	});
+
 });
 
 /*

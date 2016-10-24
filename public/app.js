@@ -1,4 +1,4 @@
-			var myApp = angular.module('myApp', ['ui.router','home','login']).config( function( $urlRouterProvider ) {
+			var myApp = angular.module('app', ['ui.router','home','login','user']).config( function( $urlRouterProvider ) {
 				$urlRouterProvider.otherwise( '/login' );
 			} ).run(function(){
 				console.log('agular app is running');
