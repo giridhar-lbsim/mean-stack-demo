@@ -1,4 +1,5 @@
 var express = require('express');
+var logger = require("./utils/logger");
 var app = express();
 // importing Contact model
 var Contact = require('./Contact.model');
@@ -105,7 +106,7 @@ app.delete('/contact/:id', function(req, res){
 });
 
 app.post('/login', function(req, res){
-	console.log('login  request: ',req.body);
+	logger.info('login request',req.body);
 	User.findOne({email:req.body.email,password:req.body.password}, function(err, user){
 		if(err){
 			res.send('error while login: ',err);
@@ -126,6 +127,7 @@ app.post('/user/find-by-id/:id', function(req, res){
 			res.send('error while finding user by id:',id);
 		}else{
 			console.log('user in server side: ',user);
+			// logger.info('user from server: ',user);
 			res.json(user);
 		}
 	});
