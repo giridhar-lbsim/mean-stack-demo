@@ -12,3 +12,6 @@
 {"email":"giridhar@testmail.com","password":"giridhar","level":"info","message":"login request","timestamp":"2017-01-09T07:42:07.580Z"}
 {"email":"giridhar@testmail.com","password":"giridhar","level":"info","message":"login request","timestamp":"2017-01-09T07:50:26.407Z"}
 {"email":"giridhar@testmail.com","password":"giridhar","level":"info","message":"login request","timestamp":"2017-01-09T08:01:19.495Z"}
+{"email":"giridhar@testmail.com","password":"giridhar","level":"info","message":"login request","timestamp":"2017-01-17T07:16:43.114Z"}
+{"level":"info","message":"login request giridhar@testmail.com","timestamp":"2017-01-17T07:20:41.948Z"}
+{"level":"info","message":"login request giridhar@testmail.com","timestamp":"2017-01-17T07:21:17.575Z"}

@@ -106,12 +106,13 @@ app.delete('/contact/:id', function(req, res){
 });
 
 app.post('/login', function(req, res){
-	logger.info('login request',req.body);
+	logger.info('login request',req.body.email);
 	User.findOne({email:req.body.email,password:req.body.password}, function(err, user){
 		if(err){
 			res.send('error while login: ',err);
 		}else{
 			if(user !== null){
+				// logger.info('user:',user);
 			res.json(user);
 			}else{
 				res.json('Invalid email or password');

@@ -25,8 +25,8 @@ module.exports = new(winston.Logger)({
       // subdomain: "nuospin",
       
       //my token
-      token: "9eb034c2-3b34-44d7-857f-aae18e97fd7a",
-      subdomain: "nuospin1",
+      token: "a0726cdf-a1c3-4975-9ef0-568bd75bc8cd",
+      subdomain: "tigerpay",
       tags: ["Winston-NodeJS"],
       json: true
     })
